@@ -6,10 +6,11 @@
         android:id="@+id/action_stop"
         android:icon="@drawable/stop_button"
         android:title="@string/stop_resource"
+        app:showAsAction="always"
         />
 
     <!-- Settings, should always be in the overflow -->
-    <item android:id="@+id/action_settings"
+    <item android:id="@+id/action_about"
         android:title="@string/about_resource"
         app:showAsAction="never"/>
 

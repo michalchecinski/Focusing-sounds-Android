@@ -1,5 +1,6 @@
 package com.checinski.michal.focusingsounds;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
@@ -7,6 +8,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 public class Soundplay extends AppCompatActivity {
 
@@ -28,6 +30,7 @@ public class Soundplay extends AppCompatActivity {
         rain.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 player.play(getApplicationContext(),"rain");
+                Toast.makeText(getApplicationContext(),"Rain/thunder", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -35,12 +38,14 @@ public class Soundplay extends AppCompatActivity {
         sea.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 player.play(getApplicationContext(),"sea");
+                Toast.makeText(getApplicationContext(),"Sea waves", Toast.LENGTH_SHORT).show();
             }
         });
 
         coffee.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 player.play(getApplicationContext(),"coffee");
+                Toast.makeText(getApplicationContext(),"Coffee", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -55,8 +60,8 @@ public class Soundplay extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.action_settings:
-                // User chose the "Settings" item, show the app settings UI...
+            case R.id.action_about:
+                startActivity(new Intent(this, AboutActivity.class));
                 return true;
 
             case R.id.action_stop:
@@ -64,8 +69,6 @@ public class Soundplay extends AppCompatActivity {
                 return true;
 
             default:
-                // If we got here, the user's action was not recognized.
-                // Invoke the superclass to handle it.
                 return super.onOptionsItemSelected(item);
 
         }
