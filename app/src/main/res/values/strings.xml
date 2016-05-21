@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Focusing sounds</string>
+    <string name="about_resource">About...</string>
+    <string name="stop_resource">Stop</string>
 </resources>

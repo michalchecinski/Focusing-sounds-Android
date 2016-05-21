@@ -5,39 +5,44 @@ import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.net.Uri;
 
-/**
- * Created by micha on 21.05.2016.
- */
+
 public class Player {
     MediaPlayer mediaPlayer = new MediaPlayer();
-    Uri myUri;
+    String filename;
 
     void play(Context context, String a)
     {
+        //this.stop();
+        mediaPlayer.reset();
         switch (a)
         {
             case "sea":
-                myUri=R.raw.crisp_ccean_waves_mike_koenig;
+                filename = "android.resource://" + context.getPackageName() +
+                        "/raw/crisp_ccean_waves_mike_koenig";
                 break;
             case "coffee":
-                myUri=R.raw.restaurant_ambiance_soundbible;
+                filename = "android.resource://" + context.getPackageName() +
+                        "/raw/restaurant_ambiance_soundbible";
                 break;
             case "rain":
-                myUri=R.raw.rain_background_mike_koenig;
+                filename = "android.resource://" + context.getPackageName() +
+                        "/raw/rain_background_mike_koenig";
                 break;
         }
-        mediaPlayer.stop();
+
 
         mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
-        mediaPlayer.setDataSource(context, myUri);
         mediaPlayer.setLooping(true);
-        mediaPlayer.prepare();
+        try { mediaPlayer.setDataSource(context, Uri.parse(filename)); } catch (Exception e) {}
+        try { mediaPlayer.prepare(); } catch (Exception e) {}
+
         mediaPlayer.start();
 
     }
 
     void stop()
     {
+        mediaPlayer.reset();
         mediaPlayer.stop();
     }
 }

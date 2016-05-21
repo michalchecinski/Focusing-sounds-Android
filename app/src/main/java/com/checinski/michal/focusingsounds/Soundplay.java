@@ -2,10 +2,15 @@ package com.checinski.michal.focusingsounds;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 
 public class Soundplay extends AppCompatActivity {
+
+    final Player player = new Player();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -15,8 +20,6 @@ public class Soundplay extends AppCompatActivity {
         final ImageButton rain = (ImageButton) findViewById(R.id.imageButtonRain);
         final ImageButton sea = (ImageButton) findViewById(R.id.imageButtonSea);
         final ImageButton coffee = (ImageButton) findViewById(R.id.imageButtonCoffee);
-
-        final Player player = new Player();
 
         assert rain != null;
         assert sea != null;
@@ -40,5 +43,31 @@ public class Soundplay extends AppCompatActivity {
                 player.play(getApplicationContext(),"coffee");
             }
         });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_settings:
+                // User chose the "Settings" item, show the app settings UI...
+                return true;
+
+            case R.id.action_stop:
+                player.stop();
+                return true;
+
+            default:
+                // If we got here, the user's action was not recognized.
+                // Invoke the superclass to handle it.
+                return super.onOptionsItemSelected(item);
+
+        }
     }
 }

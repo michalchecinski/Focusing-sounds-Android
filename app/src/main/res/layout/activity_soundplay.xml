@@ -23,7 +23,7 @@
         android:id="@+id/imageButtonSea"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="75dp"
+        android:layout_marginTop="10dp"
         android:background="@drawable/calm" />
 
     <ImageButton
@@ -32,6 +32,6 @@
         android:id="@+id/imageButtonCoffee"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="75dp"
+        android:layout_marginBottom="10dp"
         android:background="@drawable/hot_drink"/>
 </RelativeLayout>
