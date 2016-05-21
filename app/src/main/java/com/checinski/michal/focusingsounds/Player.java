@@ -17,13 +17,13 @@ public class Player {
         switch (a)
         {
             case "sea":
-                myUri=R.raw.Crisp_Ocean_Waves_Mike_Koenig_1486046376;
+                myUri=R.raw.crisp_ccean_waves_mike_koenig;
                 break;
             case "coffee":
-                myUri=R.raw.Restaurant_Ambiance_SoundBible_628640170;
+                myUri=R.raw.restaurant_ambiance_soundbible;
                 break;
             case "rain":
-                myUri=R.raw.Rain_Background_Mike_Koenig_1681389445;
+                myUri=R.raw.rain_background_mike_koenig;
                 break;
         }
         mediaPlayer.stop();

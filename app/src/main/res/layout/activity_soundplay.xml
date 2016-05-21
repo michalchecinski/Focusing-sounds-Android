@@ -33,5 +33,5 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="75dp"
-        android:background="@drawable/hot-drink"/>
+        android:background="@drawable/hot_drink"/>
 </RelativeLayout>
