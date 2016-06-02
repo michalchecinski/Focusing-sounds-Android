@@ -9,12 +9,14 @@ import android.net.Uri;
 public class Player {
     MediaPlayer mediaPlayer = new MediaPlayer();
     String filename;
+	private boolean isPlaying=false;
 
-    void play(Context context, String a)
+    void play(Context context, String sound)
     {
-        //this.stop();
-        mediaPlayer.reset();
-        switch (a)
+		if(isPlaying){
+            mediaPlayer.reset();
+		}
+        switch (sound)
         {
             case "sea":
                 filename = "android.resource://" + context.getPackageName() +
@@ -37,12 +39,16 @@ public class Player {
         try { mediaPlayer.prepare(); } catch (Exception e) {}
 
         mediaPlayer.start();
+		
+		isPlaying=true;
 
     }
 
     void stop()
     {
-        mediaPlayer.reset();
-        mediaPlayer.stop();
+        if(isPlaying) {
+            mediaPlayer.reset();
+            isPlaying = false;
+        }
     }
 }
